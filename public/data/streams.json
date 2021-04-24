@@ -1,0 +1,51 @@
+{"streams": [
+        {
+            "streamUrl": "https://archive.org/download/kfrc-howard-clark-11-24-66-2-unscoped_202009/kfrc-howard-clark-11-24-66-2-unscoped_202009_vbr.m3u",
+            "url": "https://archive.org/details/kfrc-howard-clark-11-24-66-2-unscoped_202009",
+            "station": "KFRC",
+            "amfm": "am",
+            "frequency": "610",
+            "location": "San Francisco, CA",
+            "genre": "pop/rock",
+            "airdate": "1966-11-24",
+            "decade": "60s",
+            "DJ": "Howard Clark"
+        },
+        {
+            "streamUrl": "https://archive.org/download/KFRC-FM_San_Francisco_03-11-91/KFRC-FM_San_Francisco_03-11-91_vbr.m3u",
+            "url": "https://archive.org/details/KFRC-FM_San_Francisco_03-11-91/KFRC-FM+San+Francisco+03-11-91+(0).mp3",
+            "station": "KFRC",
+            "amfm": "am",
+            "frequency": "610",
+            "location": "San Francisco, CA",
+            "genre": "pop/rock",
+            "airdate": "1991-03-11",
+            "decade": "90s",
+            "DJ": ""
+        },
+        {
+            "streamUrl": "https://archive.org/download/KFRC_San_Francisco_07-01-78/KFRC_San_Francisco_07-01-78_vbr.m3u",
+            "url": "https://archive.org/details/KFRC_San_Francisco_07-01-78",
+            "station": "KFRC",
+            "amfm": "am",
+            "frequency": "610",
+            "location": "San Francisco, CA",
+            "genre": "pop/rock",
+            "airdate": "1978-07-01",
+            "decade": "70s",
+            "DJ": ""
+        },
+        {
+            "streamUrl": "https://archive.org/download/kfrc-2-28-70-don-kelly-pt.-1/kfrc-2-28-70-don-kelly-pt.-1_vbr.m3u",
+            "url": "https://archive.org/details/kfrc-2-28-70-don-kelly-pt.-1",
+            "station": "KFRC",
+            "amfm": "am",
+            "frequency": "610",
+            "location": "San Francisco, CA",
+            "genre": "pop/rock",
+            "airdate": "1978-07-01",
+            "decade": "70s",
+            "DJ": "Don Kelley"
+        }
+    ]
+}
