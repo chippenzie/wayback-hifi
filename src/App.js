@@ -8,7 +8,7 @@ class RemoteControl extends React.Component {
     let streems = '';
 
     if (this.props.streams.length) {
-      streems = this.props.streams.map(st => <option val={st.url} key={st.url} >{st.station} {st.location} {st.airdate}</option>);
+      streems = this.props.streams.map(st => <option value={st.url} key={st.url} >{st.station} {st.location} {st.airdate}</option>);
     }
 
     return (
@@ -16,7 +16,7 @@ class RemoteControl extends React.Component {
         <select id="streamDropdown">
             {streems}                
         </select>
-        <button /* onClick={() => Radio.playStream()} */ > Play </button>
+        <button onClick={() => this.props.play()} > Play </button>
       </div>
     )
   }
@@ -30,6 +30,7 @@ class Radio extends React.Component {
       streams: [],
       currentStream: null
     }
+    this.playStream = this.playStream.bind(this);
   } 
   
   componentDidMount() {
@@ -46,18 +47,48 @@ class Radio extends React.Component {
       });
     })
   }
+  
+  getStreamByUrl(url) {
+    const streams = this.state.streams;
+    for (let i = 0; i < streams.length; i++) {
+      if (streams[i].url === url) {
+        return streams[i];
+      }
+    }
+  }
+
+  playStream() {
+    const selectedUrl = document.querySelector('#streamDropdown').value;
+    const currentStream = this.getStreamByUrl(selectedUrl);
+    this.setState({
+      currentStream: currentStream
+    })
+    console.log('play called', selectedUrl,  currentStream, new Date());
+  }
 
   render() {
     return(
       <div className="radio">
         radio radio
-        <RemoteControl streams={this.state.streams}/>
-        <div>player</div>
+        <RemoteControl streams={this.state.streams} play={this.playStream}/>
+        <Player stream={this.state.currentStream} />
       </div>
     )
   }
 }
 
+class Player extends React.Component {
+ 
+  render() {
+    const currentStream = this.props.stream || {};
+
+    return(
+      <div>
+       {currentStream.station} {currentStream.frequency} {currentStream.amfm}
+      </div>
+    )   
+  }
+}
 
 
 function App() {
