@@ -1,7 +1,5 @@
 //import { render } from '@testing-library/react';
 import React from 'react';
-import AudioPlayer from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css';
 import './App.css';
 
 class RemoteControl extends React.Component {
@@ -79,20 +77,19 @@ class Radio extends React.Component {
 }
 
 class Player extends React.Component {
- 
   render() {
     const currentStream = this.props.stream || {};
+    let archiveSrc = '';
+
+    if (currentStream.url) {
+      const urlFormatted = currentStream.url + '&autoplay=1';
+      archiveSrc = (<iframe src={urlFormatted} title="radioPlayer" width="500" height="210" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>);
+    }
 
     return(
       <div>
-          <AudioPlayer
-            autoPlay
-            src={currentStream.streamUrl}
-            onPlay={e => console.log("onPlay")}
-            // other props here
-        />
-       {currentStream.station} {currentStream.frequency} {currentStream.amfm}
-       <a href={currentStream.url}>view on archive.org</a>
+        <div>{archiveSrc}</div>
+        <a href={currentStream.url}>view on archive.org</a>
       </div>
     )   
   }
