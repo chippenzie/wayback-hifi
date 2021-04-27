@@ -12,7 +12,6 @@ class RemoteControl extends React.Component {
   }
 
   componentDidMount() {
-    console.log('cdm')
     fetch('/data/streams.json').then(response => {
       if (response.ok) {
         return response.json(); 
@@ -31,7 +30,6 @@ class RemoteControl extends React.Component {
     let streems = '';
 
     if (this.state.streams.length) {
-      console.log(this.state.streams);
       streems = this.state.streams.map(st => <option val={st.url} key={st.url} >{st.station} {st.location} {st.airdate}</option>);
     }
 
