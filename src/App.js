@@ -1,6 +1,7 @@
 //import { render } from '@testing-library/react';
 import React from 'react';
-import axios from 'axios';
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
 import './App.css';
 
 class RemoteControl extends React.Component {
@@ -84,7 +85,14 @@ class Player extends React.Component {
 
     return(
       <div>
+          <AudioPlayer
+            autoPlay
+            src={currentStream.streamUrl}
+            onPlay={e => console.log("onPlay")}
+            // other props here
+        />
        {currentStream.station} {currentStream.frequency} {currentStream.amfm}
+       <a href={currentStream.url}>view on archive.org</a>
       </div>
     )   
   }
