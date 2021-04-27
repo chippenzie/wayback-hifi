@@ -4,33 +4,11 @@ import axios from 'axios';
 import './App.css';
 
 class RemoteControl extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      streams: []
-    }
-  }
-
-  componentDidMount() {
-    fetch('/data/streams.json').then(response => {
-      if (response.ok) {
-        return response.json(); 
-      }
-      throw response;
-    }).then(data => {
-      this.setState({
-        streams: data.streams.sort((a,b) => {
-          return (a.airdate > b.airdate) ? 1 : -1
-        })
-      });
-    })
-  }
-
   render() {
     let streems = '';
 
-    if (this.state.streams.length) {
-      streems = this.state.streams.map(st => <option val={st.url} key={st.url} >{st.station} {st.location} {st.airdate}</option>);
+    if (this.props.streams.length) {
+      streems = this.props.streams.map(st => <option val={st.url} key={st.url} >{st.station} {st.location} {st.airdate}</option>);
     }
 
     return (
@@ -49,19 +27,31 @@ class Radio extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      streams: [],
       currentStream: null
     }
   } 
   
-  playStream() {
-    console.log('play stream');
+  componentDidMount() {
+    fetch('/data/streams.json').then(response => {
+      if (response.ok) {
+        return response.json(); 
+      }
+      throw response;
+    }).then(data => {
+      this.setState({
+        streams: data.streams.sort((a,b) => {
+          return (a.airdate > b.airdate) ? 1 : -1
+        })
+      });
+    })
   }
 
   render() {
     return(
       <div className="radio">
         radio radio
-        <RemoteControl />
+        <RemoteControl streams={this.state.streams}/>
         <div>player</div>
       </div>
     )
