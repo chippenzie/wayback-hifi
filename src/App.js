@@ -7,7 +7,12 @@ class RemoteControl extends React.Component {
     let streems = '';
 
     if (this.props.streams.length) {
-      streems = this.props.streams.map(st => <option value={st.url} key={st.url} >{st.station} {st.location} {st.airdate}</option>);
+      streems = this.props.streams.map((st) => {
+        if (st.url) {
+          const title = st.title ? st.title : st.station + ' ' + st.location + ' ' + st.airdate;
+          return (<option value={st.url} key={st.url} >{title}</option>);
+        }
+      });
     }
 
     return (
