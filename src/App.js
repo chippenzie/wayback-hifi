@@ -3,10 +3,12 @@ import React from 'react';
 import './App.css';
 
 
-function Filter(props) {  
-  let options = Object.keys(props.values).map((v) => {
-    console.log('v', v, props.values[v]);
-    return(<option key={v}>{v} ({props.values[v]} streams)</option>);
+function Filter(props) {
+  let propValues = Object.keys(props.values).sort();
+  
+  let options = propValues.map((v) => {
+   // console.log('v', v, props.values[v]);
+    return(<option key={v} value={v}>{v} ({props.values[v]} streams)</option>);
   });
 
   return (
@@ -14,7 +16,7 @@ function Filter(props) {
       <label htmlFor={props.id}>
         {props.label}
       </label>
-      <select id={props.id}>
+      <select id={props.id} onChange={props.filterFn}>
         <option value="">Choose one</option>
         {options}
 
@@ -24,9 +26,29 @@ function Filter(props) {
 }
 
 class RemoteControl extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      filters: {
+        station: null,
+      }
+    }
+    this.filterByStation = this.filterByStation.bind(this);
+  }
+
+  filterByStation(v) {
+    console.log(v.target.value);
+    let currentFilters = this.state.filters;
+    currentFilters.station = v.target.value;
+    this.setState({
+      filters: currentFilters
+    });
+  }
+
   render() {
     let streems = '',
-        stations = {};
+        stations = {},
+        currentFilters = this.state.filters;
 
     if (this.props.streams.length) {
       for (let i=0; i < this.props.streams.length; i++) {
@@ -40,15 +62,18 @@ class RemoteControl extends React.Component {
 
       streems = this.props.streams.map((st) => {
         if (st.url) {
-          const title = st.title ? st.title : st.station + ' ' + st.location + ' ' + st.airdate;
-          return (<option value={st.url} key={st.url} >{title}</option>);
+          if ((currentFilters.station) && (st.station === currentFilters.station)) {
+            const title = st.title ? st.title : st.station + ' ' + st.location + ' ' + st.airdate;
+            return (<option value={st.url} key={st.url} >{title}</option>);
+          }        
+          
         }
       });
     }
 
     return (
       <div>
-        <Filter id="station" label="Station" values={stations} />
+        <Filter id="station" label="Station" values={stations} filterFn={this.filterByStation} />
         <label htmlFor="streamDropdown">Streams</label>
         <select id="streamDropdown">
             {streems}                
@@ -121,7 +146,7 @@ class Player extends React.Component {
 
     if (currentStream.url) {
       const urlFormatted = currentStream.url + '&autoplay=1';
-      archiveSrc = (<iframe src={urlFormatted} title="radioPlayer" width="500" height="210" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>);
+      archiveSrc = (<iframe src={urlFormatted} title="radioPlayer" width="500" height="210" frameBorder="0"></iframe>);
     }
 
     return(
