@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/waybck-hifi/build/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/waybck-hifi/build/static/js/main.e090fd9d.chunk.js",
-    "main.js.map": "/waybck-hifi/build/static/js/main.e090fd9d.chunk.js.map",
-    "runtime-main.js": "/waybck-hifi/build/static/js/runtime-main.b9568280.js",
-    "runtime-main.js.map": "/waybck-hifi/build/static/js/runtime-main.b9568280.js.map",
-    "static/js/2.df065233.chunk.js": "/waybck-hifi/build/static/js/2.df065233.chunk.js",
-    "static/js/2.df065233.chunk.js.map": "/waybck-hifi/build/static/js/2.df065233.chunk.js.map",
-    "static/js/3.c0f27be3.chunk.js": "/waybck-hifi/build/static/js/3.c0f27be3.chunk.js",
-    "static/js/3.c0f27be3.chunk.js.map": "/waybck-hifi/build/static/js/3.c0f27be3.chunk.js.map",
-    "index.html": "/waybck-hifi/build/index.html",
-    "static/css/main.9d5b29c0.chunk.css.map": "/waybck-hifi/build/static/css/main.9d5b29c0.chunk.css.map",
-    "static/js/2.df065233.chunk.js.LICENSE.txt": "/waybck-hifi/build/static/js/2.df065233.chunk.js.LICENSE.txt"
+    "main.css": "/wayback-hifi/build/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/wayback-hifi/build/static/js/main.e090fd9d.chunk.js",
+    "main.js.map": "/wayback-hifi/build/static/js/main.e090fd9d.chunk.js.map",
+    "runtime-main.js": "/wayback-hifi/build/static/js/runtime-main.f284b541.js",
+    "runtime-main.js.map": "/wayback-hifi/build/static/js/runtime-main.f284b541.js.map",
+    "static/js/2.df065233.chunk.js": "/wayback-hifi/build/static/js/2.df065233.chunk.js",
+    "static/js/2.df065233.chunk.js.map": "/wayback-hifi/build/static/js/2.df065233.chunk.js.map",
+    "static/js/3.c0f27be3.chunk.js": "/wayback-hifi/build/static/js/3.c0f27be3.chunk.js",
+    "static/js/3.c0f27be3.chunk.js.map": "/wayback-hifi/build/static/js/3.c0f27be3.chunk.js.map",
+    "index.html": "/wayback-hifi/build/index.html",
+    "static/css/main.9d5b29c0.chunk.css.map": "/wayback-hifi/build/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.df065233.chunk.js.LICENSE.txt": "/wayback-hifi/build/static/js/2.df065233.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.b9568280.js",
+    "static/js/runtime-main.f284b541.js",
     "static/js/2.df065233.chunk.js",
     "static/css/main.9d5b29c0.chunk.css",
     "static/js/main.e090fd9d.chunk.js"
