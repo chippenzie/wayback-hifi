@@ -145,7 +145,7 @@ class RemoteControl extends React.Component {
     }
 
     if (streems.length > 0) {
-      streamDisp = (<div className="streams"><label htmlFor="streamDropdown">Streams</label><select id="streamDropdown">{streems}</select></div>);
+      streamDisp = (<div className="streams"><label htmlFor="streamDropdown">Streams</label><select id="streamDropdown">{streems}</select><button onClick={() => this.props.play()} > Play </button></div>);
     }
 
     return (
@@ -154,9 +154,7 @@ class RemoteControl extends React.Component {
         <Filter id="location" label="Locations" values={locations} filterFn={this.filterByLocation} />
         <Filter id="decades" label="Decade" values={decades} filterFn={this.filterByDecade } />
         <Filter id="genres" label="Genre" values={genres} filterFn={this.filterByGenre} />
-        {streamDisp}
-        
-        <button onClick={() => this.props.play()} > Play </button>
+        {streamDisp}      
       </div>
     )
   }
