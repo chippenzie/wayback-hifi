@@ -172,7 +172,7 @@ class Radio extends React.Component {
   } 
   
   componentDidMount() {
-    fetch('/data/streams.json').then(response => {
+    fetch('/wayback-hifi/build/data/streams.json').then(response => {
       if (response.ok) {
         return response.json(); 
       }
