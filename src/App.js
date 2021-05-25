@@ -218,17 +218,18 @@ class Radio extends React.Component {
 class Player extends React.Component {
   render() {
     const currentStream = this.props.stream || {};
-    let archiveSrc = '';
+    let archiveSrc = '', archiveLink = '';
 
     if (currentStream.url) {
       const urlFormatted = currentStream.url + '&autoplay=1';
       archiveSrc = (<iframe src={urlFormatted} title="radioPlayer" width="500" height="210" frameBorder="0"></iframe>);
+      archiveLink = (<a href={currentStream.url}>view on archive.org</a>);
     }
 
     return(
       <div>
         <div>{archiveSrc}</div>
-        <a href={currentStream.url}>view on archive.org</a>
+        <div>{archiveLink}</div>
       </div>
     )   
   }
