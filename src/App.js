@@ -80,7 +80,8 @@ class RemoteControl extends React.Component {
         decades = {},
         genres = {},
         currentFilters = this.state.filters,
-        streems = 'ppp';
+        streems = 'ppp',
+        streamDisp = '';
 
     if (this.props.streams.length) {
       for (let i=0; i < this.props.streams.length; i++) {
@@ -141,7 +142,10 @@ class RemoteControl extends React.Component {
       } else {
         streems = [];
       }
+    }
 
+    if (streems.length > 0) {
+      streamDisp = (<div className="streams"><label htmlFor="streamDropdown">Streams</label><select id="streamDropdown">{streems}</select></div>);
     }
 
     return (
@@ -150,10 +154,8 @@ class RemoteControl extends React.Component {
         <Filter id="location" label="Locations" values={locations} filterFn={this.filterByLocation} />
         <Filter id="decades" label="Decade" values={decades} filterFn={this.filterByDecade } />
         <Filter id="genres" label="Genre" values={genres} filterFn={this.filterByGenre} />
-        <label htmlFor="streamDropdown">Streams</label>
-        <select id="streamDropdown">
-            {streems}                
-        </select>
+        {streamDisp}
+        
         <button onClick={() => this.props.play()} > Play </button>
       </div>
     )
